@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.general-width {
+  max-width: 144rem;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.header {
+  background-color: #fff;
+}
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.color-mode__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=styles.css.map */
