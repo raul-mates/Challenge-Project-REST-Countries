@@ -42,4 +42,20 @@ body {
   gap: 1rem;
 }
 
+.countries__section {
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.country__list {
+  list-style: none;
+}
+
+.country__flag {
+  width: 32rem;
+  height: 21.3rem;
+}
+
 /*# sourceMappingURL=styles.css.map */

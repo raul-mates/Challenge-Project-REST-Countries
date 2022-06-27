@@ -1,0 +1,20 @@
+.countries__section {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    // overflow-x: auto;
+    flex-wrap: wrap;
+}
+
+.country__container {
+    
+}
+
+.country__list {
+    list-style: none;
+}
+
+.country__flag {
+    width: 32rem;
+    height: 21.3rem;
+}
