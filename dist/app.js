@@ -21,10 +21,10 @@ const fetchCountries = () => __awaiter(void 0, void 0, void 0, function* () {
 fetchCountries();
 const renderCountries = (countries) => {
     const countrySection = document.querySelector(".countries__section");
-    countries.forEach(country => {
+    countries.forEach((country) => {
         countrySection.insertAdjacentHTML('beforeend', `
         <a href="#" class="country__details">
-            <div class="country__container">
+            <div class="country__container" data-name=${country.name.common}>
                 <img src="${country.flags.png}" alt="${country.flag}" class="country__flag" />
                 <h3 class="country__name">${country.name.common}</h3>
                 <ul class="country__list">
