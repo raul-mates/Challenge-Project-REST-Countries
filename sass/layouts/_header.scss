@@ -1,5 +1,5 @@
 .header {
-  background-color: #fff;
+  background-color: $color--dark-blue;
 
   &__content {
     display: flex;
@@ -9,8 +9,18 @@
   }
 }
 
-.color-mode__container {
+.theme__mode--dark {
   display: flex;
   align-items: center;
   gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.theme__mode--light {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
 }

@@ -4,7 +4,7 @@
   "description": "REST Countries API Challenge",
   "main": "index.js",
   "scripts": {
-    "start": "live-server && compile:sass && compile:typescript",
+    "start": "live-server",
     "compile:sass": "sass --watch sass/main.scss styles.css",
     "compile:typescript": "tsc -w"
   },

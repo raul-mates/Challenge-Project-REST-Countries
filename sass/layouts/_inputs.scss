@@ -1,0 +1,41 @@
+.inputs__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 2rem;
+}
+
+.search__container {
+  position: relative;
+}
+
+.search-input {
+  font-family: inherit;
+  outline: none;
+  border: none;
+  padding: 1rem 7rem;
+  box-shadow: $setting--box-shadow;
+  color: $color--white;
+  background-color: $color--dark-blue;
+}
+
+.region-input {
+  font-family: inherit;
+  outline: none;
+  border: none;
+  padding: 1rem 2rem;
+  box-shadow: $setting--box-shadow;
+  color: $color--white;
+  background-color: $color--dark-blue;
+}
+
+.button__search-icon {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 2rem;
+  background-color: $color--dark-blue;
+  border: none;
+  cursor: pointer;
+  color: $color--white;
+}

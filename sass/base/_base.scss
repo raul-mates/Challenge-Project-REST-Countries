@@ -10,7 +10,8 @@ html {
 
 body {
   height: 100vh;
-  background-color: $background--color-main;
+  background-color: $color--very-dark-blue;
+  color: $color--white;
 }
 
 .center {
@@ -19,4 +20,8 @@ body {
 
 .general-width {
   max-width: 144rem;
+}
+
+.hidden {
+  display: none !important;
 }

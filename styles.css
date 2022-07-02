@@ -10,7 +10,8 @@ html {
 
 body {
   height: 100vh;
-  background-color: #fafafa;
+  background-color: hsl(207deg, 26%, 17%);
+  color: #fff;
 }
 
 .center {
@@ -21,13 +22,17 @@ body {
   max-width: 144rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
 body {
   font-size: 1.6rem;
   font-family: "Nunito Sans", sans-serif;
 }
 
 .header {
-  background-color: #fff;
+  background-color: hsl(209deg, 23%, 22%);
 }
 .header__content {
   display: flex;
@@ -36,26 +41,100 @@ body {
   padding: 2rem;
 }
 
-.color-mode__container {
+.theme__mode--dark {
   display: flex;
   align-items: center;
   gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.theme__mode--light {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .countries__section {
-  display: flex;
-  gap: 4rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  row-gap: 4rem;
+  padding: 2rem 0 4rem 0;
+}
+
+.country__container {
+  height: 42.1rem;
+  width: 32rem;
+  box-shadow: 0 2rem 3rem 0.5rem hsl(200deg, 15%, 8%);
+  padding: 0 0 4rem 0;
+  transition: 0.4s all;
 }
 
 .country__list {
   list-style: none;
 }
+.country__list--item {
+  padding: 0.5rem 2rem;
+}
+
+.country__name {
+  padding: 2rem 2rem;
+  width: 100%;
+}
 
 .country__flag {
   width: 32rem;
   height: 21.3rem;
+}
+
+.country__details {
+  text-decoration: none;
+  color: #fff;
+}
+
+.inputs__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 2rem;
+}
+
+.search__container {
+  position: relative;
+}
+
+.search-input {
+  font-family: inherit;
+  outline: none;
+  border: none;
+  padding: 1rem 7rem;
+  box-shadow: 0 2rem 3rem 0.5rem hsl(200deg, 15%, 8%);
+  color: #fff;
+  background-color: hsl(209deg, 23%, 22%);
+}
+
+.region-input {
+  font-family: inherit;
+  outline: none;
+  border: none;
+  padding: 1rem 2rem;
+  box-shadow: 0 2rem 3rem 0.5rem hsl(200deg, 15%, 8%);
+  color: #fff;
+  background-color: hsl(209deg, 23%, 22%);
+}
+
+.button__search-icon {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 2rem;
+  background-color: hsl(209deg, 23%, 22%);
+  border: none;
+  cursor: pointer;
+  color: #fff;
 }
 
 /*# sourceMappingURL=styles.css.map */
