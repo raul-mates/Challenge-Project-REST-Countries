@@ -77,6 +77,9 @@ const filterByRegion = () => {
             countrySection.innerHTML = '';
             fetchByRegion(selectForm.value);
         }
+        if (selectForm.value === 'All') {
+            fetchCountries();
+        }
     })
 }
 filterByRegion();
