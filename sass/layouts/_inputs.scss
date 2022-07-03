@@ -14,9 +14,9 @@
   outline: none;
   border: none;
   padding: 1rem 7rem;
-  box-shadow: $setting--box-shadow;
-  color: $color--white;
-  background-color: $color--dark-blue;
+  box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg 15% 8%);
+  color: $color--very-dark-blue-text;
+  background-color: $color--white;
 }
 
 .region-input {
@@ -24,9 +24,9 @@
   outline: none;
   border: none;
   padding: 1rem 2rem;
-  box-shadow: $setting--box-shadow;
-  color: $color--white;
-  background-color: $color--dark-blue;
+  box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg 15% 8%);
+  color: $color--very-dark-blue-text;
+  background-color: $color--white;
 }
 
 .button__search-icon {
@@ -34,10 +34,10 @@
   top: 8px;
   left: 12px;
   font-size: 2rem;
-  background-color: $color--dark-blue;
+  background-color: $color--white;
   border: none;
   cursor: pointer;
-  color: $color--white;
+  color: $color--very-dark-blue-text;
 }
 
 #theme-mode__checkbox {

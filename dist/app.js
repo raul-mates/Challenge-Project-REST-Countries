@@ -9,14 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderCountries = void 0;
 const genericFetch = (url, init) => __awaiter(void 0, void 0, void 0, function* () {
     const fetchedData = yield fetch(url, init);
     return (yield fetchedData.json());
 });
 const fetchCountries = () => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield genericFetch('https://restcountries.com/v3.1/all');
-    (0, exports.renderCountries)(data);
+    renderCountries(data);
 });
 fetchCountries();
 const renderCountries = (countries) => {
@@ -37,12 +36,11 @@ const renderCountries = (countries) => {
     `);
     });
 };
-exports.renderCountries = renderCountries;
 const fetchCountryByInput = (countryName) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const getCountry = yield fetch(`https://restcountries.com/v3.1/name/${countryName}`);
         const data = yield getCountry.json();
-        (0, exports.renderCountries)(data);
+        renderCountries(data);
     }
     catch (err) {
         alert('Could not find specified country!');
@@ -67,7 +65,7 @@ searchInputHandler();
 const fetchByRegion = (region) => __awaiter(void 0, void 0, void 0, function* () {
     const response = yield fetch(`https://restcountries.com/v3.1/region/${region}`);
     const data = yield response.json();
-    (0, exports.renderCountries)(data);
+    renderCountries(data);
 });
 const filterByRegion = () => {
     const countrySection = document.querySelector(".countries__section");
@@ -83,4 +81,43 @@ const filterByRegion = () => {
     });
 };
 filterByRegion();
+const toggleThemeMode = () => {
+    const checkbox = document.getElementById('theme-mode__checkbox');
+    const headingPrimary = document.querySelector('.heading-primary');
+    const header = document.querySelector('.header');
+    const body = document.querySelector('body');
+    const searchInput = document.querySelector('.search-input');
+    const searchButton = document.querySelector('.button__search-icon');
+    const regionInput = document.querySelector('.region-input');
+    let colorDarkBlue = "hsl(209, 23%, 22%)";
+    let colorVeryDarkBlue = "hsl(207, 26%, 17%)";
+    let colorVeryDarkBlueText = "hsl(200, 15%, 8%)";
+    let colorVeryLightGrayBackground = "hsl(0, 0%, 98%)";
+    let colorWhite = "#fff";
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            header.style.backgroundColor = colorDarkBlue;
+            headingPrimary.style.color = colorWhite;
+            body.style.backgroundColor = colorVeryDarkBlue;
+            searchInput.style.backgroundColor = colorDarkBlue;
+            searchInput.style.color = colorWhite;
+            regionInput.style.backgroundColor = colorDarkBlue;
+            regionInput.style.color = colorWhite;
+            searchButton.style.backgroundColor = colorDarkBlue;
+            searchButton.style.color = colorWhite;
+        }
+        else {
+            header.style.backgroundColor = colorWhite;
+            headingPrimary.style.color = colorVeryDarkBlueText;
+            body.style.backgroundColor = colorVeryLightGrayBackground;
+            searchInput.style.backgroundColor = colorWhite;
+            searchInput.style.color = colorVeryDarkBlueText;
+            regionInput.style.backgroundColor = colorWhite;
+            regionInput.style.color = colorVeryDarkBlueText;
+            searchButton.style.backgroundColor = colorWhite;
+            searchButton.style.color = colorVeryDarkBlueText;
+        }
+    });
+};
+toggleThemeMode();
 //# sourceMappingURL=app.js.map

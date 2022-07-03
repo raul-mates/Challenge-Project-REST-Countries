@@ -1,5 +1,6 @@
 import { CountryModel } from "./models/country.model";
 
+
 const genericFetch = async <T>(url: URL | RequestInfo, init?: RequestInit): Promise<T> => {
     const fetchedData: Response = await fetch(url, init);
     return (await fetchedData.json()) as T;
@@ -12,7 +13,7 @@ const fetchCountries = async (): Promise<void> => {
 
 fetchCountries();
 
-export const renderCountries = (countries: CountryModel[]) => {
+const renderCountries = (countries: CountryModel[]) => {
     const countrySection = document.querySelector(".countries__section") as HTMLElement;
     countries.forEach((country) => {
         countrySection.insertAdjacentHTML('beforeend', `
@@ -83,3 +84,46 @@ const filterByRegion = () => {
     })
 }
 filterByRegion();
+
+const toggleThemeMode = (): void => {
+    //DOM Elements
+    const checkbox = document.getElementById('theme-mode__checkbox')! as HTMLInputElement;
+    const headingPrimary = document.querySelector('.heading-primary')! as HTMLElement;
+    const header = document.querySelector('.header')! as HTMLElement;
+    const body = document.querySelector('body')! as HTMLBodyElement;
+    const searchInput = document.querySelector('.search-input')! as HTMLInputElement;
+    const searchButton = document.querySelector('.button__search-icon')! as HTMLButtonElement;
+    const regionInput = document.querySelector('.region-input')! as HTMLInputElement;
+
+    //Color variables as in SASS
+    let colorDarkBlue = "hsl(209, 23%, 22%)";
+    let colorVeryDarkBlue = "hsl(207, 26%, 17%)";
+    let colorVeryDarkBlueText = "hsl(200, 15%, 8%)";
+    let colorVeryLightGrayBackground = "hsl(0, 0%, 98%)";
+    let colorWhite = "#fff";
+
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            header.style.backgroundColor = colorDarkBlue;
+            headingPrimary.style.color = colorWhite;
+            body.style.backgroundColor = colorVeryDarkBlue;
+            searchInput.style.backgroundColor = colorDarkBlue;
+            searchInput.style.color = colorWhite;
+            regionInput.style.backgroundColor = colorDarkBlue;
+            regionInput.style.color = colorWhite;
+            searchButton.style.backgroundColor = colorDarkBlue;
+            searchButton.style.color = colorWhite;
+        } else {
+            header.style.backgroundColor = colorWhite;
+            headingPrimary.style.color = colorVeryDarkBlueText;
+            body.style.backgroundColor = colorVeryLightGrayBackground;
+            searchInput.style.backgroundColor = colorWhite;
+            searchInput.style.color = colorVeryDarkBlueText;
+            regionInput.style.backgroundColor = colorWhite;
+            regionInput.style.color = colorVeryDarkBlueText;
+            searchButton.style.backgroundColor = colorWhite;
+            searchButton.style.color = colorVeryDarkBlueText;
+        }
+    })
+}
+toggleThemeMode();

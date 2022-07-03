@@ -10,7 +10,7 @@ html {
 
 body {
   height: 100vh;
-  background-color: hsl(207deg, 26%, 17%);
+  background-color: hsl(0deg, 0%, 98%);
   color: #fff;
 }
 
@@ -22,8 +22,8 @@ body {
   max-width: 144rem;
 }
 
-.hidden {
-  display: none !important;
+.heading-primary {
+  color: hsl(200deg, 15%, 8%);
 }
 
 body {
@@ -43,7 +43,7 @@ body {
 }
 
 .header {
-  background-color: hsl(209deg, 23%, 22%);
+  background-color: #fff;
 }
 .header__content {
   display: flex;
@@ -63,7 +63,7 @@ body {
 .country__container {
   height: 42.1rem;
   width: 32rem;
-  box-shadow: 0 2rem 3rem 0.5rem hsl(200deg, 15%, 8%);
+  box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
   padding: 0 0 4rem 0;
   transition: 0.4s all;
 }
@@ -87,7 +87,7 @@ body {
 
 .country__details {
   text-decoration: none;
-  color: #fff;
+  color: hsl(200deg, 15%, 8%);
 }
 
 .inputs__container {
@@ -106,9 +106,9 @@ body {
   outline: none;
   border: none;
   padding: 1rem 7rem;
-  box-shadow: 0 2rem 3rem 0.5rem hsl(200deg, 15%, 8%);
-  color: #fff;
-  background-color: hsl(209deg, 23%, 22%);
+  box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
+  color: hsl(200deg, 15%, 8%);
+  background-color: #fff;
 }
 
 .region-input {
@@ -116,9 +116,9 @@ body {
   outline: none;
   border: none;
   padding: 1rem 2rem;
-  box-shadow: 0 2rem 3rem 0.5rem hsl(200deg, 15%, 8%);
-  color: #fff;
-  background-color: hsl(209deg, 23%, 22%);
+  box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
+  color: hsl(200deg, 15%, 8%);
+  background-color: #fff;
 }
 
 .button__search-icon {
@@ -126,10 +126,10 @@ body {
   top: 8px;
   left: 12px;
   font-size: 2rem;
-  background-color: hsl(209deg, 23%, 22%);
+  background-color: #fff;
   border: none;
   cursor: pointer;
-  color: #fff;
+  color: hsl(200deg, 15%, 8%);
 }
 
 #theme-mode__checkbox {

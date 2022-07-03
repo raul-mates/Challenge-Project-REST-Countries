@@ -10,7 +10,7 @@ html {
 
 body {
   height: 100vh;
-  background-color: $color--very-dark-blue;
+  background-color: $color--very-light-gray-background;
   color: $color--white;
 }
 
@@ -22,6 +22,6 @@ body {
   max-width: 144rem;
 }
 
-.hidden {
-  display: none !important;
+.heading-primary {
+  color: $color--very-dark-blue-text;
 }
