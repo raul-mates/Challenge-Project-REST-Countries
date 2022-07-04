@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 2rem 1.5rem 2rem;
 }
 
 .search__container {
   position: relative;
+  border: 2px solid #333;
 }
 
 .search-input {
@@ -27,6 +28,7 @@
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg 15% 8%);
   color: $color--very-dark-blue-text;
   background-color: $color--white;
+  border: 2px solid #333;
 }
 
 .button__search-icon {
