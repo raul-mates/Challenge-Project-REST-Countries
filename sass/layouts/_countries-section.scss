@@ -5,6 +5,21 @@
   row-gap: 3rem;
   column-gap: 7rem;
   padding: 2rem 0 4rem 0;
+
+  @include respond(tab-land) {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 0;
+  }
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
 }
 
 .country__container {

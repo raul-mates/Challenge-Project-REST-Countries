@@ -6,6 +6,9 @@
 
 html {
   font-size: 62.5%;
+  @include respond(phone) {
+    font-size: 56.25%;
+  }
 }
 
 body {
@@ -28,4 +31,7 @@ body {
 
 .heading-primary {
   color: $color--very-dark-blue-text;
+  @include respond(phone) {
+    font-size: 2.4rem;
+  }
 }

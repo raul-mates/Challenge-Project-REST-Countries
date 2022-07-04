@@ -7,6 +7,11 @@
 html {
   font-size: 62.5%;
 }
+@media (max-width: 36em) {
+  html {
+    font-size: 56.25%;
+  }
+}
 
 body {
   height: 100vh;
@@ -28,6 +33,11 @@ body {
 
 .heading-primary {
   color: hsl(200deg, 15%, 8%);
+}
+@media (max-width: 36em) {
+  .heading-primary {
+    font-size: 2.4rem;
+  }
 }
 
 body {
@@ -63,6 +73,24 @@ body {
   row-gap: 3rem;
   column-gap: 7rem;
   padding: 2rem 0 4rem 0;
+}
+@media (max-width: 79em) {
+  .countries__section {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 0;
+  }
+}
+@media (max-width: 58em) {
+  .countries__section {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0;
+  }
+}
+@media (max-width: 36em) {
+  .countries__section {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
 }
 
 .country__container {
@@ -119,16 +147,25 @@ body {
   color: hsl(200deg, 15%, 8%);
   background-color: #fff;
 }
+@media (max-width: 36em) {
+  .search-input {
+    padding: 1rem 0 1rem 3.5rem;
+  }
+}
 
 .region-input {
   font-family: inherit;
   outline: none;
-  border: none;
   padding: 1rem 2rem;
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
   color: hsl(200deg, 15%, 8%);
   background-color: #fff;
   border: 2px solid #333;
+}
+@media (max-width: 36em) {
+  .region-input {
+    padding: 1rem;
+  }
 }
 
 .button__search-icon {

@@ -18,17 +18,23 @@
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg 15% 8%);
   color: $color--very-dark-blue-text;
   background-color: $color--white;
+
+  @include respond(phone) {
+    padding: 1rem 0 1rem 3.5rem;
+  }
 }
 
 .region-input {
   font-family: inherit;
   outline: none;
-  border: none;
   padding: 1rem 2rem;
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg 15% 8%);
   color: $color--very-dark-blue-text;
   background-color: $color--white;
   border: 2px solid #333;
+  @include respond(phone) {
+    padding: 1rem;
+  }
 }
 
 .button__search-icon {
