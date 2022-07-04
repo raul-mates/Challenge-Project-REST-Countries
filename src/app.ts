@@ -9,8 +9,8 @@ const genericFetch = async <T>(url: URL | RequestInfo, init?: RequestInit): Prom
 const fetchCountries = async (): Promise<void> => {
     const data = await genericFetch<CountryModel[]>('https://restcountries.com/v3.1/all');
     renderCountries(data);
-    toggleThemeMode();
     filterByRegion();
+    toggleThemeMode();
     searchInputHandler();
 }
 
@@ -21,7 +21,7 @@ const renderCountries = (countries: CountryModel[]) => {
     countries.forEach((country) => {
         countrySection.insertAdjacentHTML('beforeend', `
         <a href="#" class="country__details">
-            <div class="country__container" data-region="${country.region}" data-name="${country.name.common}">
+            <div class="country__container light" data-region="${country.region}" data-name="${country.name.common}">
                 <img src="${country.flags.png}" alt="${country.flag}" class="country__flag" />
                 <h3 class="country__name">${country.name.common}</h3>
                 <ul class="country__list">
@@ -82,11 +82,9 @@ const toggleThemeMode = (): void => {
     const headingPrimary = document.querySelector('.heading-primary')! as HTMLElement;
     const header = document.querySelector('.header')! as HTMLElement;
     const body = document.querySelector('body')! as HTMLBodyElement;
-    const countryDetails = document.querySelectorAll<HTMLAnchorElement>('.country__details')!
     const searchInput = document.querySelector('.search-input')! as HTMLInputElement;
     const searchButton = document.querySelector('.button__search-icon')! as HTMLButtonElement;
     const regionInput = document.querySelector('.region-input')! as HTMLInputElement;
-    const countryContainer = document.querySelectorAll<HTMLDivElement>('.country__container')!;
 
     //Color variables as in SASS
     let colorDarkBlue = "hsl(209, 23%, 22%)";
@@ -100,11 +98,8 @@ const toggleThemeMode = (): void => {
             header.style.backgroundColor = colorDarkBlue;
             headingPrimary.style.color = colorWhite;
             body.style.backgroundColor = colorVeryDarkBlue;
-            countryDetails.forEach(country => {
-                country.style.color = colorWhite;
-            })
-            countryContainer.forEach(country => {
-                country.style.backgroundColor = colorDarkBlue;
+            document.querySelectorAll('.light').forEach(el => {
+                el.classList.replace('light', 'dark')
             })
             searchInput.style.backgroundColor = colorDarkBlue;
             searchInput.style.color = colorWhite;
@@ -116,11 +111,8 @@ const toggleThemeMode = (): void => {
             header.style.backgroundColor = colorWhite;
             headingPrimary.style.color = colorVeryDarkBlueText;
             body.style.backgroundColor = colorVeryLightGrayBackground;
-            countryDetails.forEach(country => {
-                country.style.color = colorVeryDarkBlueText;
-            })
-            countryContainer.forEach(country => {
-                country.style.backgroundColor = colorWhite;
+            document.querySelectorAll('.dark').forEach(el => {
+                el.classList.replace('dark', 'light')
             })
             searchInput.style.backgroundColor = colorWhite;
             searchInput.style.color = colorVeryDarkBlueText;
@@ -131,4 +123,3 @@ const toggleThemeMode = (): void => {
         }
     })
 }
-

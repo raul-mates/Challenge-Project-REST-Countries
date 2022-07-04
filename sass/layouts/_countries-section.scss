@@ -27,8 +27,6 @@
   width: 26.4rem;
   box-shadow: $setting--box-shadow;
   padding: 0 0 4rem 0;
-  transition: .4s all;
-  background-color: $color--white;
   border: 2px solid #333;
 }
 
@@ -53,5 +51,4 @@
 
 .country__details {
   text-decoration: none;
-  color: $color--very-dark-blue-text;
 }

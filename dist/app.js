@@ -16,8 +16,8 @@ const genericFetch = (url, init) => __awaiter(void 0, void 0, void 0, function* 
 const fetchCountries = () => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield genericFetch('https://restcountries.com/v3.1/all');
     renderCountries(data);
-    toggleThemeMode();
     filterByRegion();
+    toggleThemeMode();
     searchInputHandler();
 });
 fetchCountries();
@@ -26,7 +26,7 @@ const renderCountries = (countries) => {
     countries.forEach((country) => {
         countrySection.insertAdjacentHTML('beforeend', `
         <a href="#" class="country__details">
-            <div class="country__container" data-region="${country.region}" data-name="${country.name.common}">
+            <div class="country__container light" data-region="${country.region}" data-name="${country.name.common}">
                 <img src="${country.flags.png}" alt="${country.flag}" class="country__flag" />
                 <h3 class="country__name">${country.name.common}</h3>
                 <ul class="country__list">
@@ -81,11 +81,9 @@ const toggleThemeMode = () => {
     const headingPrimary = document.querySelector('.heading-primary');
     const header = document.querySelector('.header');
     const body = document.querySelector('body');
-    const countryDetails = document.querySelectorAll('.country__details');
     const searchInput = document.querySelector('.search-input');
     const searchButton = document.querySelector('.button__search-icon');
     const regionInput = document.querySelector('.region-input');
-    const countryContainer = document.querySelectorAll('.country__container');
     let colorDarkBlue = "hsl(209, 23%, 22%)";
     let colorVeryDarkBlue = "hsl(207, 26%, 17%)";
     let colorVeryDarkBlueText = "hsl(200, 15%, 8%)";
@@ -96,11 +94,8 @@ const toggleThemeMode = () => {
             header.style.backgroundColor = colorDarkBlue;
             headingPrimary.style.color = colorWhite;
             body.style.backgroundColor = colorVeryDarkBlue;
-            countryDetails.forEach(country => {
-                country.style.color = colorWhite;
-            });
-            countryContainer.forEach(country => {
-                country.style.backgroundColor = colorDarkBlue;
+            document.querySelectorAll('.light').forEach(el => {
+                el.classList.replace('light', 'dark');
             });
             searchInput.style.backgroundColor = colorDarkBlue;
             searchInput.style.color = colorWhite;
@@ -113,11 +108,8 @@ const toggleThemeMode = () => {
             header.style.backgroundColor = colorWhite;
             headingPrimary.style.color = colorVeryDarkBlueText;
             body.style.backgroundColor = colorVeryLightGrayBackground;
-            countryDetails.forEach(country => {
-                country.style.color = colorVeryDarkBlueText;
-            });
-            countryContainer.forEach(country => {
-                country.style.backgroundColor = colorWhite;
+            document.querySelectorAll('.dark').forEach(el => {
+                el.classList.replace('dark', 'light');
             });
             searchInput.style.backgroundColor = colorWhite;
             searchInput.style.color = colorVeryDarkBlueText;
