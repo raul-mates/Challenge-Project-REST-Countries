@@ -56,6 +56,9 @@ const searchInputHandler = () => {
             if (!country.dataset.name.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`)) {
                 country.parentElement.classList.add('hidden');
             }
+            else if (country.dataset.name.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`) && country.dataset.region === selectRegion.value || selectRegion.value === '') {
+                country.parentElement.classList.remove('hidden');
+            }
         });
     });
 };
@@ -90,8 +93,7 @@ const toggleThemeMode = () => {
     let colorVeryDarkBlueText = "hsl(200, 15%, 8%)";
     let colorVeryLightGrayBackground = "hsl(0, 0%, 98%)";
     let colorWhite = "#fff";
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        checkbox.checked = true;
+    const darkTheme = () => {
         header.style.backgroundColor = colorDarkBlue;
         headingPrimary.style.color = colorWhite;
         body.style.backgroundColor = colorVeryDarkBlue;
@@ -104,35 +106,31 @@ const toggleThemeMode = () => {
         regionInput.style.color = colorWhite;
         searchButton.style.backgroundColor = colorDarkBlue;
         searchButton.style.color = colorWhite;
+    };
+    const lightTheme = () => {
+        header.style.backgroundColor = colorWhite;
+        headingPrimary.style.color = colorVeryDarkBlueText;
+        body.style.backgroundColor = colorVeryLightGrayBackground;
+        document.querySelectorAll('.dark').forEach(el => {
+            el.classList.replace('dark', 'light');
+        });
+        searchInput.style.backgroundColor = colorWhite;
+        searchInput.style.color = colorVeryDarkBlueText;
+        regionInput.style.backgroundColor = colorWhite;
+        regionInput.style.color = colorVeryDarkBlueText;
+        searchButton.style.backgroundColor = colorWhite;
+        searchButton.style.color = colorVeryDarkBlueText;
+    };
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        checkbox.checked = true;
+        darkTheme();
     }
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
-            header.style.backgroundColor = colorDarkBlue;
-            headingPrimary.style.color = colorWhite;
-            body.style.backgroundColor = colorVeryDarkBlue;
-            document.querySelectorAll('.light').forEach(el => {
-                el.classList.replace('light', 'dark');
-            });
-            searchInput.style.backgroundColor = colorDarkBlue;
-            searchInput.style.color = colorWhite;
-            regionInput.style.backgroundColor = colorDarkBlue;
-            regionInput.style.color = colorWhite;
-            searchButton.style.backgroundColor = colorDarkBlue;
-            searchButton.style.color = colorWhite;
+            darkTheme();
         }
         else {
-            header.style.backgroundColor = colorWhite;
-            headingPrimary.style.color = colorVeryDarkBlueText;
-            body.style.backgroundColor = colorVeryLightGrayBackground;
-            document.querySelectorAll('.dark').forEach(el => {
-                el.classList.replace('dark', 'light');
-            });
-            searchInput.style.backgroundColor = colorWhite;
-            searchInput.style.color = colorVeryDarkBlueText;
-            regionInput.style.backgroundColor = colorWhite;
-            regionInput.style.color = colorVeryDarkBlueText;
-            searchButton.style.backgroundColor = colorWhite;
-            searchButton.style.color = colorVeryDarkBlueText;
+            lightTheme();
         }
     });
 };
