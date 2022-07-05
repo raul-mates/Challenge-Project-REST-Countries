@@ -131,6 +131,7 @@ body {
 
 .country__details {
   text-decoration: none;
+  color: hsl(200deg, 15%, 8%);
 }
 
 .inputs__container {

@@ -21,7 +21,7 @@ const renderCountries = (countries: CountryModel[]) => {
     countries.forEach((country) => {
         countrySection.insertAdjacentHTML('beforeend', `
         <a href="#" class="country__details">
-            <div class="country__container light" data-region="${country.region}" data-name="${country.name.common}">
+            <div class="country__container light" data-region="${country.region}" data-name="${country.name.common}" data-native-name="${country.name.nativeName}" data-sub-region="${country.subregion}" data-currency="${country.currencies}" data-toplevel-domain="${country.tld}" data-languages="${country.languages}">
                 <img src="${country.flags.png}" alt="${country.flag}" class="country__flag" />
                 <h3 class="country__name">${country.name.common}</h3>
                 <ul class="country__list">
@@ -39,18 +39,20 @@ const renderCountries = (countries: CountryModel[]) => {
 const searchInputHandler = () => {
     const searchInput = document.querySelector('.search-input')! as HTMLInputElement;
     const countryContainer = [...document.querySelectorAll<HTMLDivElement>(".country__container")]!;
+    const selectRegion = document.querySelector('.region-input')! as HTMLSelectElement;
 
     searchInput.addEventListener('input', (e) => {
         e.preventDefault();
-        console.log(searchInput.value)
+        console.log(e)
         countryContainer.forEach(country => {
-            if (searchInput.value.length === 0) {
+            if (searchInput.value.length === 0 && selectRegion.value === '') {
+                country.parentElement!.classList.remove('hidden');
+            }
+            if (searchInput.value.length === 0 && country.dataset.region === selectRegion.value) {
                 country.parentElement!.classList.remove('hidden');
             }
             if (!country.dataset.name!.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`)) {
                 country.parentElement!.classList.add('hidden');
-            } else {
-                country.parentElement!.classList.remove('hidden');
             }
         })
     })
@@ -93,6 +95,24 @@ const toggleThemeMode = (): void => {
     let colorVeryLightGrayBackground = "hsl(0, 0%, 98%)";
     let colorWhite = "#fff";
 
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        checkbox.checked = true;
+        header.style.backgroundColor = colorDarkBlue;
+        headingPrimary.style.color = colorWhite;
+        body.style.backgroundColor = colorVeryDarkBlue;
+        document.querySelectorAll('.light').forEach(el => {
+            el.classList.replace('light', 'dark')
+        })
+        searchInput.style.backgroundColor = colorDarkBlue;
+        searchInput.style.color = colorWhite;
+        regionInput.style.backgroundColor = colorDarkBlue;
+        regionInput.style.color = colorWhite;
+        searchButton.style.backgroundColor = colorDarkBlue;
+        searchButton.style.color = colorWhite;
+    }
+
+    // Checked event and theme toggle
     checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
             header.style.backgroundColor = colorDarkBlue;
