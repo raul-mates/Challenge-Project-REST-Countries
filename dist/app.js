@@ -395,7 +395,7 @@ const renderCountryDetails = (countryDetails) => {
     const borderCountries = countryDetails[0].borders ? countryDetails[0].borders.map(country => (0, exports.getCountryISO2)(country)) : [];
     let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
     const addBorderCountries = () => {
-        const borderCountriesContainer = document.querySelector('.container__border-countries');
+        const borderCountriesContainer = document.querySelector('.bordering-country__container');
         if (borderCountries.length === 0) {
             borderCountriesContainer.insertAdjacentHTML('beforeend', `
                 <span class="bordering-country--not-found">There are no bordering countries with this country!</span>
@@ -408,7 +408,9 @@ const renderCountryDetails = (countryDetails) => {
         });
     };
     countryDetailsContainer.insertAdjacentHTML('beforeend', `
-        <button class="button__return">&larr; Back</button>
+        <div class="wrapper__return-button">
+            <button class="button__return">&larr; Back</button>
+        </div>
         <div class="container__country-info">
             <div class="container__country-flag">
                 <img src="${countryDetails[0].flags.png}" alt="Country flag" class="country-flag">
@@ -431,6 +433,7 @@ const renderCountryDetails = (countryDetails) => {
                 </div>
                 <div class="container__border-countries">
                     <p class="border-countries__text"><strong>Border countries: </strong></p>
+                    <div class="bordering-country__container"></div>
                 </div>
             </div>
         </div>

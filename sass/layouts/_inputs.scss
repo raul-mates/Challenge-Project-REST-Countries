@@ -111,4 +111,15 @@
   &:active {
     transform: scale(1);
   }
+
+  @include respond(tab-land) {
+    margin-left: 0;
+  }
+}
+
+.wrapper__return-button {
+  @include respond(tab-land) {
+    width: 80%;
+    margin: 0 auto;
+  }
 }

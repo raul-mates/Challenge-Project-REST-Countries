@@ -44,6 +44,13 @@ body {
   color: inherit;
   font-size: 2.8rem;
 }
+@media (max-width: 79em) {
+  .heading-secondary {
+    padding: 4rem 0 2rem 0;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 
 .light {
   color: hsl(200deg, 15%, 8%);
@@ -146,17 +153,38 @@ body {
 
 .country-flag {
   display: flex;
-  width: 60rem;
   height: 45rem;
   align-items: center;
   margin-left: 2rem;
   border: 3px solid;
   border-color: inherit;
 }
+@media (max-width: 79em) {
+  .country-flag {
+    margin-left: 0;
+    height: 40rem;
+  }
+}
+@media (max-width: 58em) {
+  .country-flag {
+    height: 30rem;
+  }
+}
+@media (max-width: 36em) {
+  .country-flag {
+    margin-left: 0;
+    height: auto;
+  }
+}
 
 .container__country-details {
   width: 100%;
   margin-left: 8rem;
+}
+@media (max-width: 79em) {
+  .container__country-details {
+    margin-left: 0;
+  }
 }
 
 .container__country-info {
@@ -164,6 +192,13 @@ body {
   display: flex;
   align-items: center;
   width: 100%;
+}
+@media (max-width: 79em) {
+  .container__country-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }
 
 .country-info__list {
@@ -175,6 +210,14 @@ body {
   justify-content: space-between;
   margin-top: 2.4rem;
 }
+@media (max-width: 79em) {
+  .country-info__wrapper {
+    flex-direction: column;
+    gap: 3rem;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
 
 .country-info__item {
   font-size: 2rem;
@@ -185,6 +228,24 @@ body {
   display: flex;
   align-items: center;
   margin: 4rem 0 1rem 0;
+}
+@media (max-width: 79em) {
+  .container__border-countries {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 79em) {
+  .bordering-country__container {
+    padding: 2rem;
+  }
+}
+@media (max-width: 31.75em) {
+  .bordering-country__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 .border-countries__text {
@@ -201,6 +262,11 @@ body {
 }
 .bordering-country:not(:last-child) {
   margin-right: 1rem;
+}
+@media (max-width: 31.75em) {
+  .bordering-country {
+    margin: 1rem;
+  }
 }
 
 .bordering-country--not-found {
@@ -322,6 +388,18 @@ body {
 }
 .button__return:active {
   transform: scale(1);
+}
+@media (max-width: 79em) {
+  .button__return {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 79em) {
+  .wrapper__return-button {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -413,7 +413,7 @@ const renderCountryDetails = (countryDetails: CountryModel[]) => {
 
 
     const addBorderCountries = () => {
-        const borderCountriesContainer = document.querySelector('.container__border-countries')! as HTMLDivElement;
+        const borderCountriesContainer = document.querySelector('.bordering-country__container')! as HTMLDivElement;
 
         if (borderCountries.length === 0) {
             borderCountriesContainer.insertAdjacentHTML('beforeend', `
@@ -429,7 +429,9 @@ const renderCountryDetails = (countryDetails: CountryModel[]) => {
     }
 
     countryDetailsContainer.insertAdjacentHTML('beforeend', `
-        <button class="button__return">&larr; Back</button>
+        <div class="wrapper__return-button">
+            <button class="button__return">&larr; Back</button>
+        </div>
         <div class="container__country-info">
             <div class="container__country-flag">
                 <img src="${countryDetails[0].flags.png}" alt="Country flag" class="country-flag">
@@ -452,6 +454,7 @@ const renderCountryDetails = (countryDetails: CountryModel[]) => {
                 </div>
                 <div class="container__border-countries">
                     <p class="border-countries__text"><strong>Border countries: </strong></p>
+                    <div class="bordering-country__container"></div>
                 </div>
             </div>
         </div>
