@@ -282,7 +282,7 @@ const renderCountries = (countries) => {
     countries.forEach((country) => {
         countrySection.insertAdjacentHTML('beforeend', `
         <a href="#" class="country__details">
-            <div class="country__container" data-region="${country.region}" data-name="${country.name.common}" data-name-official="${country.name.official}">
+            <div class="country__container" data-region="${country.region}" data-name="${country.name.common}" data-official="${country.name.official}">
                 <img src="${country.flags.png}" alt="${country.flag}" class="country__flag" />
                 <h3 class="country__name">${country.name.common}</h3>
                 <ul class="country__list">
@@ -302,12 +302,10 @@ const searchInputHandler = () => {
     searchInput.addEventListener('input', (e) => {
         e.preventDefault();
         countryContainer.forEach(country => {
-            if (searchInput.value.length === 0 && selectRegion.value === '') {
+            if (searchInput.value.length === 0 && selectRegion.value === '')
                 country.parentElement.classList.remove('hidden');
-            }
-            if (searchInput.value.length === 0 && country.dataset.region === selectRegion.value) {
+            if (searchInput.value.length === 0 && country.dataset.region === selectRegion.value)
                 country.parentElement.classList.remove('hidden');
-            }
             if (!country.dataset.name.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`)) {
                 country.parentElement.classList.add('hidden');
             }
@@ -323,15 +321,9 @@ const filterByRegion = () => {
     selectRegion.addEventListener('change', () => {
         let regionSelected = selectRegion.value;
         countryContainer.forEach(country => {
-            if (country.dataset.region !== regionSelected) {
-                country.parentElement.classList.add('hidden');
-            }
-            else {
+            country.dataset.region !== regionSelected ? country.parentElement.classList.add('hidden') : country.parentElement.classList.remove('hidden');
+            if (regionSelected === '')
                 country.parentElement.classList.remove('hidden');
-            }
-            if (regionSelected === '') {
-                country.parentElement.classList.remove('hidden');
-            }
         });
     });
 };
@@ -402,18 +394,8 @@ const renderCountryDetails = (countryDetails) => {
     let nativeName;
     const borderCountries = countryDetails[0].borders ? countryDetails[0].borders.map(country => (0, exports.getCountryISO2)(country)) : [];
     let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-    if (!countryDetails[0].hasOwnProperty('currencies')) {
-        currencies = ['No available currency.'];
-    }
-    else {
-        currencies = (Object.values(countryDetails[0].currencies)).map(currencyType => currencyType.name);
-    }
-    if (!countryDetails[0].hasOwnProperty('nativeName')) {
-        nativeName = ['No native name available.'];
-    }
-    else {
-        nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
-    }
+    !countryDetails[0].hasOwnProperty('currencies') ? currencies = ['No available currency.'] : currencies = (Object.values(countryDetails[0].currencies)).map(currencyType => currencyType.name);
+    !countryDetails[0].hasOwnProperty('nativeName') ? nativeName = ['No native name available.'] : nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
     const addBorderCountries = () => {
         const borderCountriesContainer = document.querySelector('.bordering-country__container');
         if (borderCountries.length === 0) {
@@ -475,7 +457,7 @@ const getCountryDetails = () => {
             countriesSection.style.display = 'none';
             inputsContainer.style.display = 'none';
             console.log(country.firstElementChild);
-            fetchCountryDetails(country.firstElementChild.dataset.name);
+            fetchCountryDetails(country.firstElementChild.dataset.official);
         });
     });
 };

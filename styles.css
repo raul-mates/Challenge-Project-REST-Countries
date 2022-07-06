@@ -154,6 +154,7 @@ body {
 .country-flag {
   display: flex;
   height: 45rem;
+  width: 60rem;
   align-items: center;
   margin-left: 2rem;
   border: 3px solid;
@@ -163,6 +164,7 @@ body {
   .country-flag {
     margin-left: 0;
     height: 40rem;
+    width: auto;
   }
 }
 @media (max-width: 58em) {

@@ -60,6 +60,7 @@
 .country-flag {
   display: flex;
   height: 45rem;
+  width: 60rem;
   align-items: center;
   margin-left: 2rem;
   border: 3px solid;
@@ -67,6 +68,7 @@
   @include respond(tab-land) {
     margin-left: 0;
     height: 40rem;
+    width: auto;
   }
 
   @include respond(tab-port) {
