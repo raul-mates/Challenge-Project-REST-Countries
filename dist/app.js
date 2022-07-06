@@ -1,24 +1,30 @@
-import { CountryModel } from "./models/country.model";
-import { getCountryISO2 } from "./get-countries";
-
-const genericFetch = async <T>(url: URL | RequestInfo, init?: RequestInit): Promise<T> => {
-    const fetchedData: Response = await fetch(url, init);
-    return (await fetchedData.json()) as T;
-}
-
-const fetchCountries = async (): Promise<void> => {
-    const data = await genericFetch<CountryModel[]>('https://restcountries.com/v3.1/all');
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const get_countries_1 = require("./get-countries");
+const genericFetch = (url, init) => __awaiter(void 0, void 0, void 0, function* () {
+    const fetchedData = yield fetch(url, init);
+    return (yield fetchedData.json());
+});
+const fetchCountries = () => __awaiter(void 0, void 0, void 0, function* () {
+    const data = yield genericFetch('https://restcountries.com/v3.1/all');
     renderCountries(data);
     filterByRegion();
     toggleThemeMode();
     searchInputHandler();
     getCountryDetails();
-}
-
+});
 fetchCountries();
-
-const renderCountries = (countries: CountryModel[]) => {
-    const countrySection = document.querySelector(".countries__section") as HTMLElement;
+const renderCountries = (countries) => {
+    const countrySection = document.querySelector(".countries__section");
     countries.forEach((country) => {
         countrySection.insertAdjacentHTML('beforeend', `
         <a href="#" class="country__details">
@@ -32,63 +38,54 @@ const renderCountries = (countries: CountryModel[]) => {
                 </ul>
             </div>
         </a>
-    `)
-    })
+    `);
+    });
 };
-
-
 const searchInputHandler = () => {
-    const searchInput = document.querySelector('.search-input')! as HTMLInputElement;
-    const countryContainer = [...document.querySelectorAll<HTMLDivElement>(".country__container")]!;
-    const selectRegion = document.querySelector('.region-input')! as HTMLSelectElement;
-
+    const searchInput = document.querySelector('.search-input');
+    const countryContainer = [...document.querySelectorAll(".country__container")];
+    const selectRegion = document.querySelector('.region-input');
     searchInput.addEventListener('input', (e) => {
         e.preventDefault();
         countryContainer.forEach(country => {
-            if (searchInput.value.length === 0 && selectRegion.value === '') country.parentElement!.classList.remove('hidden');
-
-            if (searchInput.value.length === 0 && country.dataset.region === selectRegion.value) country.parentElement!.classList.remove('hidden');
-
-            if (!country.dataset.name!.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`)) {
-                country.parentElement!.classList.add('hidden');
-            } else if (country.dataset.name!.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`) && country.dataset.region === selectRegion.value || selectRegion.value === '') {
-                country.parentElement!.classList.remove('hidden');
+            if (searchInput.value.length === 0 && selectRegion.value === '')
+                country.parentElement.classList.remove('hidden');
+            if (searchInput.value.length === 0 && country.dataset.region === selectRegion.value)
+                country.parentElement.classList.remove('hidden');
+            if (!country.dataset.name.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`)) {
+                country.parentElement.classList.add('hidden');
             }
-        })
-    })
-}
-
-
+            else if (country.dataset.name.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`) && country.dataset.region === selectRegion.value || selectRegion.value === '') {
+                country.parentElement.classList.remove('hidden');
+            }
+        });
+    });
+};
 const filterByRegion = () => {
-    const countryContainer = [...document.querySelectorAll<HTMLDivElement>(".country__container")]!;
-    const selectRegion = document.querySelector('.region-input')! as HTMLSelectElement;
+    const countryContainer = [...document.querySelectorAll(".country__container")];
+    const selectRegion = document.querySelector('.region-input');
     selectRegion.addEventListener('change', () => {
         let regionSelected = selectRegion.value;
         countryContainer.forEach(country => {
-            country.dataset.region !== regionSelected ? country.parentElement!.classList.add('hidden') : country.parentElement!.classList.remove('hidden');
-            if (regionSelected === '') country.parentElement!.classList.remove('hidden');
-        })
-    })
-}
-
-const toggleThemeMode = (): void => {
-    //DOM Elements
-    const checkbox = document.getElementById('theme-mode__checkbox')! as HTMLInputElement;
-    const header = document.querySelector('.header')! as HTMLElement;
-    const body = document.querySelector('body')! as HTMLBodyElement;
-    const searchInput = document.querySelector('.search-input')! as HTMLInputElement;
-    const regionInput = document.querySelector('.region-input')! as HTMLInputElement;
-    const countryDetails = document.querySelectorAll<HTMLAnchorElement>('.country__details');
-
-
-    //Color variables as in SASS
+            country.dataset.region !== regionSelected ? country.parentElement.classList.add('hidden') : country.parentElement.classList.remove('hidden');
+            if (regionSelected === '')
+                country.parentElement.classList.remove('hidden');
+        });
+    });
+};
+const toggleThemeMode = () => {
+    const checkbox = document.getElementById('theme-mode__checkbox');
+    const header = document.querySelector('.header');
+    const body = document.querySelector('body');
+    const searchInput = document.querySelector('.search-input');
+    const regionInput = document.querySelector('.region-input');
+    const countryDetails = document.querySelectorAll('.country__details');
     const colorDarkBlue = "hsl(209, 23%, 22%)";
     const colorVeryDarkBlue = "hsl(207, 26%, 17%)";
     const colorVeryDarkBlueText = "hsl(200, 15%, 8%)";
     const colorVeryLightGrayBackground = "hsl(0, 0%, 98%)";
     const colorWhite = "#fff";
-
-    const darkTheme = (): void => {
+    const darkTheme = () => {
         header.style.backgroundColor = colorDarkBlue;
         body.style.backgroundColor = colorVeryDarkBlue;
         body.style.color = colorWhite;
@@ -97,11 +94,10 @@ const toggleThemeMode = (): void => {
         if (countryDetails) {
             countryDetails.forEach(country => {
                 country.style.backgroundColor = colorDarkBlue;
-            })
+            });
         }
-    }
-
-    const lightTheme = (): void => {
+    };
+    const lightTheme = () => {
         header.style.backgroundColor = colorWhite;
         body.style.backgroundColor = colorVeryLightGrayBackground;
         body.style.color = colorVeryDarkBlueText;
@@ -110,73 +106,55 @@ const toggleThemeMode = (): void => {
         if (countryDetails) {
             countryDetails.forEach(country => {
                 country.style.backgroundColor = colorWhite;
-            })
+            });
         }
-    }
-
-
+    };
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         checkbox.checked = true;
         darkTheme();
     }
-
-    // Check event and theme toggle
     checkbox.addEventListener('change', () => {
         checkbox.checked ? darkTheme() : lightTheme();
-    })
-}
-
-const closeCountryDetails = (): void => {
-    const countryDetailsContainer = document.querySelector('.country__details-container')! as HTMLDivElement;
-    const countriesSection = document.querySelector('.countries__section')! as HTMLElement;
-    const inputsContainer = document.querySelector('.inputs__container')! as HTMLDivElement;
-    const returnBtn = document.querySelector('.button__return')! as HTMLButtonElement;
+    });
+};
+const closeCountryDetails = () => {
+    const countryDetailsContainer = document.querySelector('.country__details-container');
+    const countriesSection = document.querySelector('.countries__section');
+    const inputsContainer = document.querySelector('.inputs__container');
+    const returnBtn = document.querySelector('.button__return');
     returnBtn.addEventListener('click', (e) => {
-        e.preventDefault()
+        e.preventDefault();
         countriesSection.style.display = '';
         inputsContainer.style.display = '';
         countryDetailsContainer.remove();
-    })
-}
-
-
-const renderCountryDetails = (countryDetails: CountryModel[]) => {
-    //DOM
-    const body = document.querySelector('body')! as HTMLBodyElement;
+    });
+};
+const renderCountryDetails = (countryDetails) => {
+    const body = document.querySelector('body');
     const countryDetailsContainer = document.createElement('div');
     countryDetailsContainer.classList.add('country__details-container');
     countryDetailsContainer.classList.add('general-width');
     countryDetailsContainer.classList.add('center');
     body.appendChild(countryDetailsContainer);
-
-    //VARIABLES
-    let currencies: string[];
-    let nativeName: string[];
-    const borderCountries = countryDetails[0].borders ? countryDetails[0].borders.map(country => getCountryISO2(country)) : [];
-    let regionNames = new Intl.DisplayNames(['en'], {type: 'region'})
-
-    // currencies = !countryDetails[0]['currencies'] ? ['No available currency.'] : Object.values(countryDetails[0].currencies).map(currencyType => currencyType.name);
-    // nativeName = !countryDetails[0]['currencies'] ? ['No native name available.'] : (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
-
+    let currencies;
+    let nativeName;
+    const borderCountries = countryDetails[0].borders ? countryDetails[0].borders.map(country => (0, get_countries_1.getCountryISO2)(country)) : [];
+    let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
     !countryDetails[0].hasOwnProperty('currencies') ? currencies = ['No available currency.'] : currencies = (Object.values(countryDetails[0].currencies)).map(currencyType => currencyType.name);
     !countryDetails[0].hasOwnProperty('nativeName') ? nativeName = ['No native name available.'] : nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
-
     const addBorderCountries = () => {
-        const borderCountriesContainer = document.querySelector('.bordering-country__container')! as HTMLDivElement;
-
+        const borderCountriesContainer = document.querySelector('.bordering-country__container');
         if (borderCountries.length === 0) {
             borderCountriesContainer.insertAdjacentHTML('beforeend', `
                 <span class="bordering-country--not-found">There are no bordering countries with this country!</span>
-           `)
+           `);
         }
-
         borderCountries.forEach((country, i) => {
             borderCountriesContainer.insertAdjacentHTML('beforeend', `
                 ${i < 3 ? (country ? `<span class="bordering-country">${regionNames.of(country)}</span>` : ``) : ""}
-           `)
-        })
-    }
-
+           `);
+        });
+    };
     countryDetailsContainer.insertAdjacentHTML('beforeend', `
         <div class="wrapper__return-button">
             <button class="button__return">&larr; Back</button>
@@ -207,31 +185,26 @@ const renderCountryDetails = (countryDetails: CountryModel[]) => {
                 </div>
             </div>
         </div>
-    `)
+    `);
     addBorderCountries();
     closeCountryDetails();
-}
-
-const fetchCountryDetails = async (name: string) => {
-    const requestDetails = await fetch(`https://restcountries.com/v3.1/name/${name}`)
-    const countryData = await requestDetails.json()
+};
+const fetchCountryDetails = (name) => __awaiter(void 0, void 0, void 0, function* () {
+    const requestDetails = yield fetch(`https://restcountries.com/v3.1/name/${name}`);
+    const countryData = yield requestDetails.json();
     renderCountryDetails(countryData);
-}
-
-
+});
 const getCountryDetails = () => {
-    const countryDetails = document.querySelectorAll<HTMLAnchorElement>('.country__details')!;
-    const countriesSection = document.querySelector('.countries__section')! as HTMLElement;
-    const inputsContainer = document.querySelector('.inputs__container')! as HTMLDivElement;
-
-
+    const countryDetails = document.querySelectorAll('.country__details');
+    const countriesSection = document.querySelector('.countries__section');
+    const inputsContainer = document.querySelector('.inputs__container');
     countryDetails.forEach(country => {
         country.addEventListener('click', () => {
             countriesSection.style.display = 'none';
             inputsContainer.style.display = 'none';
-            console.log(country.firstElementChild)
-            //@ts-ignore
-            fetchCountryDetails(country.firstElementChild!.dataset.official)
-        })
-    })
-}
+            console.log(country.firstElementChild);
+            fetchCountryDetails(country.firstElementChild.dataset.official);
+        });
+    });
+};
+//# sourceMappingURL=app.js.map
