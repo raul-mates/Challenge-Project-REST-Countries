@@ -461,4 +461,5 @@ const getCountryDetails = () => {
         });
     });
 };
+console.log('pateu 8=>');
 //# sourceMappingURL=app.js.map

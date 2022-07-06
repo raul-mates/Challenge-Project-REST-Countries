@@ -488,3 +488,5 @@ const getCountryDetails = () => {
         })
     })
 }
+
+console.log('pateu 8=>');
