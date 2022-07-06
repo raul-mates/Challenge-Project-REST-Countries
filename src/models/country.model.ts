@@ -19,6 +19,7 @@ export interface CountryModel {
     latlng: [number, number];
     landlocked: boolean;
     area: number;
+    borders?: string[];
     demonyms: Record<string, Record<string, string>>;
     flag: string;
     maps: CountryMaps;

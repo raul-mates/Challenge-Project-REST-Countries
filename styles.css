@@ -16,7 +16,7 @@ html {
 body {
   height: 100vh;
   background-color: hsl(0deg, 0%, 98%);
-  color: #fff;
+  color: hsl(200deg, 15%, 8%);
 }
 
 .hidden {
@@ -32,12 +32,17 @@ body {
 }
 
 .heading-primary {
-  color: hsl(200deg, 15%, 8%);
+  color: inherit;
 }
 @media (max-width: 36em) {
   .heading-primary {
     font-size: 2.4rem;
   }
+}
+
+.heading-secondary {
+  color: inherit;
+  font-size: 2.8rem;
 }
 
 .light {
@@ -68,6 +73,8 @@ body {
 
 .header {
   background-color: #fff;
+  border-bottom: 1px solid;
+  border-color: inherit;
 }
 .header__content {
   display: flex;
@@ -108,7 +115,8 @@ body {
   width: 26.4rem;
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
   padding: 0 0 4rem 0;
-  border: 2px solid #333;
+  border: 2px solid;
+  border-color: inherit;
 }
 
 .country__list {
@@ -126,12 +134,78 @@ body {
 .country__flag {
   width: 100%;
   height: 15rem;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid;
+  border-color: inherit;
 }
 
 .country__details {
   text-decoration: none;
-  color: hsl(200deg, 15%, 8%);
+  color: inherit;
+  background-color: #fff;
+}
+
+.country-flag {
+  display: flex;
+  width: 60rem;
+  height: 45rem;
+  align-items: center;
+  margin-left: 2rem;
+  border: 3px solid;
+  border-color: inherit;
+}
+
+.container__country-details {
+  width: 100%;
+  margin-left: 8rem;
+}
+
+.container__country-info {
+  margin-top: 6rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.country-info__list {
+  list-style: none;
+}
+
+.country-info__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.4rem;
+}
+
+.country-info__item {
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+
+.container__border-countries {
+  display: flex;
+  align-items: center;
+  margin: 4rem 0 1rem 0;
+}
+
+.border-countries__text {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.bordering-country {
+  font-size: 1.8rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  border: 2px solid;
+  border-color: inherit;
+}
+.bordering-country:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.bordering-country--not-found {
+  font-size: 1.8rem;
+  padding: 0.5rem 1.2rem;
 }
 
 .inputs__container {
@@ -143,7 +217,8 @@ body {
 
 .search__container {
   position: relative;
-  border: 2px solid #333;
+  border: 2px solid;
+  border-color: inherit;
 }
 
 .search-input {
@@ -152,7 +227,7 @@ body {
   border: none;
   padding: 1rem 7rem;
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
-  color: hsl(200deg, 15%, 8%);
+  color: inherit;
   background-color: #fff;
 }
 @media (max-width: 36em) {
@@ -166,9 +241,10 @@ body {
   outline: none;
   padding: 1rem 2rem;
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
-  color: hsl(200deg, 15%, 8%);
+  color: inherit;
   background-color: #fff;
-  border: 2px solid #333;
+  border: 2px solid;
+  border-color: inherit;
 }
 @media (max-width: 36em) {
   .region-input {
@@ -181,10 +257,10 @@ body {
   top: 8px;
   left: 12px;
   font-size: 2rem;
-  background-color: #fff;
+  background-color: inherit;
   border: none;
   cursor: pointer;
-  color: hsl(200deg, 15%, 8%);
+  color: inherit;
 }
 
 #theme-mode__checkbox {
@@ -226,6 +302,26 @@ body {
 .moon {
   font-size: 2rem;
   color: yellow;
+}
+
+.button__return {
+  font-family: inherit;
+  font-size: 2.4rem;
+  margin-top: 6rem;
+  margin-left: 2rem;
+  padding: 0.5rem 3rem;
+  border-radius: 5px;
+  border: 2px solid;
+  border-color: inherit;
+  background-color: inherit;
+  transition: transform 0.4s;
+  color: inherit;
+}
+.button__return:hover {
+  transform: scale(1.05);
+}
+.button__return:active {
+  transform: scale(1);
 }
 
 /*# sourceMappingURL=styles.css.map */
