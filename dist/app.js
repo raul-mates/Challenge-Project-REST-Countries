@@ -282,7 +282,7 @@ const renderCountries = (countries) => {
     countries.forEach((country) => {
         countrySection.insertAdjacentHTML('beforeend', `
         <a href="#" class="country__details">
-            <div class="country__container" data-region="${country.region}" data-name="${country.name.official}">
+            <div class="country__container" data-region="${country.region}" data-name="${country.name.common}" data-name-official="${country.name.official}">
                 <img src="${country.flags.png}" alt="${country.flag}" class="country__flag" />
                 <h3 class="country__name">${country.name.common}</h3>
                 <ul class="country__list">
@@ -302,10 +302,12 @@ const searchInputHandler = () => {
     searchInput.addEventListener('input', (e) => {
         e.preventDefault();
         countryContainer.forEach(country => {
-            if (searchInput.value.length === 0 && selectRegion.value === '')
+            if (searchInput.value.length === 0 && selectRegion.value === '') {
                 country.parentElement.classList.remove('hidden');
-            if (searchInput.value.length === 0 && country.dataset.region === selectRegion.value)
+            }
+            if (searchInput.value.length === 0 && country.dataset.region === selectRegion.value) {
                 country.parentElement.classList.remove('hidden');
+            }
             if (!country.dataset.name.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`)) {
                 country.parentElement.classList.add('hidden');
             }
@@ -321,9 +323,15 @@ const filterByRegion = () => {
     selectRegion.addEventListener('change', () => {
         let regionSelected = selectRegion.value;
         countryContainer.forEach(country => {
-            country.dataset.region !== regionSelected ? country.parentElement.classList.add('hidden') : country.parentElement.classList.remove('hidden');
-            if (regionSelected === '')
+            if (country.dataset.region !== regionSelected) {
+                country.parentElement.classList.add('hidden');
+            }
+            else {
                 country.parentElement.classList.remove('hidden');
+            }
+            if (regionSelected === '') {
+                country.parentElement.classList.remove('hidden');
+            }
         });
     });
 };
