@@ -235,6 +235,11 @@ body {
   }
 }
 
+.bordering-country__container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 @media (max-width: 79em) {
   .bordering-country__container {
     padding: 2rem;
@@ -245,12 +250,13 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 0;
   }
 }
 
 .border-countries__text {
   font-size: 2rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .bordering-country {
@@ -259,9 +265,6 @@ body {
   border-radius: 5px;
   border: 2px solid;
   border-color: inherit;
-}
-.bordering-country:not(:last-child) {
-  margin-right: 1rem;
 }
 @media (max-width: 31.75em) {
   .bordering-country {

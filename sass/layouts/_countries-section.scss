@@ -130,6 +130,9 @@
 }
 
 .bordering-country__container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
   @include respond(tab-land) {
     padding: 2rem;
   }
@@ -138,12 +141,13 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 0;
   }
 }
 
 .border-countries__text {
   font-size: 2rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .bordering-country {
@@ -152,10 +156,6 @@
   border-radius: 5px;
   border: 2px solid;
   border-color: inherit;
-
-  &:not(:last-child) {
-    margin-right: 1rem;
-  }
 
   @include respond(small-phone) {
     margin: 1rem;

@@ -414,10 +414,22 @@ const renderCountryDetails = (countryDetails: CountryModel[]) => {
     body.appendChild(countryDetailsContainer);
 
     //VARIABLES
-    const currencies = (Object.values(countryDetails[0].currencies)).map(currencyType => currencyType.name)
-    const nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common)
+    let currencies;
+    let nativeName;
     const borderCountries = countryDetails[0].borders ? countryDetails[0].borders.map(country => getCountryISO2(country)) : [];
     let regionNames = new Intl.DisplayNames(['en'], {type: 'region'})
+
+    if (!countryDetails[0].hasOwnProperty('currencies')) {
+        currencies = ['No available currency.']
+    } else {
+        currencies = (Object.values(countryDetails[0].currencies)).map(currencyType => currencyType.name);
+    }
+
+    if (!countryDetails[0].hasOwnProperty('nativeName')) {
+        nativeName = ['No native name available.']
+    } else {
+        nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
+    }
 
 
     const addBorderCountries = () => {
@@ -448,16 +460,16 @@ const renderCountryDetails = (countryDetails: CountryModel[]) => {
                 <h2 class="heading-secondary">${countryDetails[0].name.common}</h2>
                 <div class="country-info__wrapper">
                     <ul class="country-info__list">
-                        <li class="country-info__item"><strong>Native name: </strong>${nativeName.at(-1)}</li>
+                        <li class="country-info__item"><strong>Native name: </strong>${nativeName ? nativeName.at(-1) : nativeName[0]}</li>
                         <li class="country-info__item"><strong>Population: </strong>${countryDetails[0].population.toLocaleString('en-US')}</li>
-                        <li class="country-info__item"><strong>Region: </strong>${countryDetails[0].region}</li>
-                        <li class="country-info__item"><strong>Sub Region: </strong>${countryDetails[0].subregion}</li>
-                        <li class="country-info__item"><strong>Capital: </strong>${countryDetails[0].capital}</li>
+                        <li class="country-info__item"><strong>Region: </strong>${countryDetails[0].region ? countryDetails[0].region : 'No region available.'}</li>
+                        <li class="country-info__item"><strong>Sub Region: </strong>${countryDetails[0].subregion ? countryDetails[0].subregion : 'No sub region available.'}</li>
+                        <li class="country-info__item"><strong>Capital: </strong>${countryDetails[0].capital ? countryDetails[0].capital : 'No capital available.'}</li>
                     </ul>
                     <ul class="country-info__list">
                         <li class="country-info__item"><strong>Top Level Domain: </strong>${countryDetails[0].tld}</li>
                         <li class="country-info__item"><strong>Currencies: </strong>${currencies.length === 1 ? currencies[0] : currencies.join(', ')}</li>
-                        <li class="country-info__item"><strong>Languages: </strong>${Object.values(countryDetails[0].languages).toString().replaceAll(',', ', ')}</li>
+                        <li class="country-info__item"><strong>Languages: </strong>${countryDetails[0].hasOwnProperty('languages') ? Object.values(countryDetails[0].languages).toString().replaceAll(',', ', ') : 'No language available.'}</li>
                     </ul>
                 </div>
                 <div class="container__border-countries">
