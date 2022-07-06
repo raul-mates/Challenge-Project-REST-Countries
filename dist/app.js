@@ -421,9 +421,9 @@ const renderCountryDetails = (countryDetails) => {
                 <span class="bordering-country--not-found">There are no bordering countries with this country!</span>
            `);
         }
-        borderCountries.forEach(country => {
+        borderCountries.forEach((country, i) => {
             borderCountriesContainer.insertAdjacentHTML('beforeend', `
-                ${country ? `<span class="bordering-country">${regionNames.of(country)}</span>` : ``}
+                ${i < 3 ? (country ? `<span class="bordering-country">${regionNames.of(country)}</span>` : ``) : ""}
            `);
         });
     };

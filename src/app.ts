@@ -441,9 +441,9 @@ const renderCountryDetails = (countryDetails: CountryModel[]) => {
            `)
         }
 
-        borderCountries.forEach(country => {
+        borderCountries.forEach((country, i) => {
             borderCountriesContainer.insertAdjacentHTML('beforeend', `
-                ${country ? `<span class="bordering-country">${regionNames.of(country)}</span>` : ``}
+                ${i < 3 ? (country ? `<span class="bordering-country">${regionNames.of(country)}</span>` : ``) : ""}
            `)
         })
     }

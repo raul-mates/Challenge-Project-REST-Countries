@@ -237,8 +237,9 @@ body {
 
 .bordering-country__container {
   display: flex;
-  gap: 1rem;
   align-items: center;
+  justify-content: space-around;
+  width: 60%;
 }
 @media (max-width: 79em) {
   .bordering-country__container {
@@ -251,6 +252,7 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 0;
+    width: 100%;
   }
 }
 

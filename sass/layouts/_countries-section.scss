@@ -131,8 +131,9 @@
 
 .bordering-country__container {
   display: flex;
-  gap: 1rem;
   align-items: center;
+  justify-content: space-around;
+  width: 60%;
   @include respond(tab-land) {
     padding: 2rem;
   }
@@ -142,6 +143,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 0;
+    width: 100%;
   }
 }
 
