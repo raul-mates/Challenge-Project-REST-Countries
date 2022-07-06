@@ -1,6 +1,6 @@
 import { CountryModel } from "./models/country.model";
 
-export const countryISOMapping = {
+const countryISOMapping = {
     AFG: "AF",
     ALA: "AX",
     ALB: "AL",
@@ -302,7 +302,7 @@ const searchInputHandler = () => {
         e.preventDefault();
         countryContainer.forEach(country => {
             if (searchInput.value.length === 0 && selectRegion.value === '') country.parentElement!.classList.remove('hidden');
-            
+
             if (searchInput.value.length === 0 && country.dataset.region === selectRegion.value) country.parentElement!.classList.remove('hidden');
 
             if (!country.dataset.name!.toLowerCase().startsWith(`${searchInput.value.toLowerCase()}`)) {
@@ -395,7 +395,7 @@ const closeCountryDetails = (): void => {
     })
 }
 
-//@ts-ignore
+
 const renderCountryDetails = (countryDetails: CountryModel[]) => {
     //DOM
     const body = document.querySelector('body')! as HTMLBodyElement;

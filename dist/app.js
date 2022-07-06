@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCountryISO2 = exports.countryISOMapping = void 0;
-exports.countryISOMapping = {
+exports.getCountryISO2 = void 0;
+const countryISOMapping = {
     AFG: "AF",
     ALA: "AX",
     ALB: "AL",
@@ -261,7 +261,7 @@ exports.countryISOMapping = {
     XKX: "XK"
 };
 const getCountryISO2 = (countryCode) => {
-    return exports.countryISOMapping[countryCode];
+    return countryISOMapping[countryCode];
 };
 exports.getCountryISO2 = getCountryISO2;
 const genericFetch = (url, init) => __awaiter(void 0, void 0, void 0, function* () {

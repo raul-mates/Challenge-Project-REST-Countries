@@ -27,7 +27,9 @@
   width: 26.4rem;
   box-shadow: $setting--box-shadow;
   padding: 0 0 4rem 0;
-  border: 2px solid;
+  //border: 2px solid inherit;
+  border-width: 2px;
+  border-style: solid;
   border-color: inherit;
 }
 
