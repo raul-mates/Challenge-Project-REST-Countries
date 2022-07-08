@@ -136,10 +136,11 @@
 .bordering-country__container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  gap: 2rem;
   width: 60%;
   @include respond(tab-land) {
     padding: 2rem;
+    justify-content: center;
   }
 
   @include respond(small-phone) {
@@ -153,7 +154,7 @@
 
 .border-countries__text {
   font-size: 2rem;
-  margin-right: 0.5rem;
+  margin-right: 1.5rem;
 }
 
 .bordering-country {

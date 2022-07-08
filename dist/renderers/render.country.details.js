@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCountryDetails = exports.renderCountryDetails = void 0;
 const get_countries_1 = require("../get-countries");
 const close_country_details_1 = require("../inputHandlers/close.country.details");
+const app_1 = require("../app");
 const renderCountryDetails = (countryDetails) => {
     const body = document.querySelector('body');
     const countryDetailsContainer = document.createElement('div');
@@ -70,7 +71,7 @@ const getCountryDetails = () => {
             countriesSection.style.display = 'none';
             inputsContainer.style.display = 'none';
             console.log(country.firstElementChild);
-            fetchCountryDetails(country.firstElementChild.dataset.official);
+            (0, app_1.fetchCountryDetails)(country.firstElementChild.dataset.official);
         });
     });
 };

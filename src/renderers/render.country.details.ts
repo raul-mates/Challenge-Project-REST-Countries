@@ -1,6 +1,7 @@
 import { CountryModel } from "../models/country.model";
 import { getCountryISO2 } from "../get-countries";
 import { closeCountryDetails } from "../inputHandlers/close.country.details";
+import { fetchCountryDetails } from "../app";
 
 export const renderCountryDetails = (countryDetails: CountryModel[]) => {
     //DOM
