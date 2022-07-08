@@ -20,7 +20,7 @@ export const renderCountryDetails = (countryDetails: CountryModel[]) => {
 
 
     !countryDetails[0].hasOwnProperty('currencies') ? currencies = ['No available currency.'] : currencies = (Object.values(countryDetails[0].currencies)).map(currencyType => currencyType.name);
-    !countryDetails[0].hasOwnProperty('nativeName') ? nativeName = ['No native name available.'] : nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
+    !countryDetails[0].name.hasOwnProperty('nativeName') ? nativeName = ['No native name available.'] : nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
 
     const addBorderCountries = () => {
         const borderCountriesContainer = document.querySelector('.bordering-country__container')! as HTMLDivElement;
@@ -79,7 +79,6 @@ export const getCountryDetails = () => {
         country.addEventListener('click', () => {
             countriesSection.style.display = 'none';
             inputsContainer.style.display = 'none';
-            console.log(country.firstElementChild)
             //@ts-ignore
             fetchCountryDetails(country.firstElementChild!.dataset.official)
         })

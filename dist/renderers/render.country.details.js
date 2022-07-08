@@ -16,7 +16,7 @@ const renderCountryDetails = (countryDetails) => {
     const borderCountries = countryDetails[0].borders ? countryDetails[0].borders.map(country => (0, get_countries_1.getCountryISO2)(country)) : [];
     let regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
     !countryDetails[0].hasOwnProperty('currencies') ? currencies = ['No available currency.'] : currencies = (Object.values(countryDetails[0].currencies)).map(currencyType => currencyType.name);
-    !countryDetails[0].hasOwnProperty('nativeName') ? nativeName = ['No native name available.'] : nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
+    !countryDetails[0].name.hasOwnProperty('nativeName') ? nativeName = ['No native name available.'] : nativeName = (Object.values(countryDetails[0].name.nativeName)).map(name => name.common);
     const addBorderCountries = () => {
         const borderCountriesContainer = document.querySelector('.bordering-country__container');
         if (borderCountries.length === 0)
@@ -70,7 +70,6 @@ const getCountryDetails = () => {
         country.addEventListener('click', () => {
             countriesSection.style.display = 'none';
             inputsContainer.style.display = 'none';
-            console.log(country.firstElementChild);
             (0, app_1.fetchCountryDetails)(country.firstElementChild.dataset.official);
         });
     });
