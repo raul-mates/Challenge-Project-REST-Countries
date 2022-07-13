@@ -13,7 +13,7 @@ export const toggleThemeMode = (): void => {
     const colorVeryDarkBlue = "hsl(207, 26%, 17%)";
     const colorVeryDarkBlueText = "hsl(200, 15%, 8%)";
     const colorVeryLightGrayBackground = "hsl(0, 0%, 98%)";
-    const colorWhite = "#fff";
+    const colorWhite = "#f3f3f3";
 
     const darkTheme = (): void => {
         header.style.backgroundColor = colorDarkBlue;

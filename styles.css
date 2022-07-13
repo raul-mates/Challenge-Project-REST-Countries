@@ -122,9 +122,10 @@ body {
   width: 26.4rem;
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
   padding: 0 0 4rem 0;
-  border-width: 2px;
-  border-style: solid;
+  border: 2px solid;
   border-color: inherit;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .country__list {
@@ -142,6 +143,7 @@ body {
 .country__flag {
   width: 100%;
   height: 15rem;
+  object-fit: cover;
   border-bottom: 2px solid;
   border-color: inherit;
 }
@@ -150,12 +152,20 @@ body {
   text-decoration: none;
   color: inherit;
   background-color: #fff;
+  transition: transform 0.2s;
+}
+.country__details:hover {
+  transform: scale(1.05);
+}
+.country__details:active {
+  transform: scale(1);
 }
 
 .country-flag {
   display: flex;
-  height: 45rem;
-  width: 60rem;
+  height: auto;
+  width: 100%;
+  max-height: 80rem;
   align-items: center;
   margin-left: 2rem;
   border: 3px solid;
@@ -176,7 +186,7 @@ body {
 @media (max-width: 36em) {
   .country-flag {
     margin-left: 0;
-    height: auto;
+    height: 25rem;
   }
 }
 
@@ -280,7 +290,6 @@ body {
 
 .bordering-country--not-found {
   font-size: 1.8rem;
-  padding: 0.5rem 1.2rem;
 }
 
 .inputs__container {
@@ -292,8 +301,6 @@ body {
 
 .search__container {
   position: relative;
-  border: 2px solid;
-  border-color: inherit;
 }
 
 .search-input {
@@ -304,11 +311,23 @@ body {
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
   color: inherit;
   background-color: #fff;
+  border-radius: 5rem;
+  border: 2px solid;
+  border-color: inherit;
 }
 @media (max-width: 36em) {
   .search-input {
     padding: 1rem 0 1rem 3.5rem;
   }
+}
+
+.sort__button {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 3px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .region-input {
@@ -320,6 +339,7 @@ body {
   background-color: #fff;
   border: 2px solid;
   border-color: inherit;
+  border-radius: 5rem;
 }
 @media (max-width: 36em) {
   .region-input {
@@ -329,8 +349,8 @@ body {
 
 .button__search-icon {
   position: absolute;
-  top: 8px;
-  left: 12px;
+  top: 11px;
+  left: 13px;
   font-size: 2rem;
   background-color: inherit;
   border: none;

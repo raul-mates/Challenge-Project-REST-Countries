@@ -27,10 +27,10 @@
   width: 26.4rem;
   box-shadow: $setting--box-shadow;
   padding: 0 0 4rem 0;
-  //border: 2px solid inherit;
-  border-width: 2px;
-  border-style: solid;
+  border: 2px solid;
   border-color: inherit;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .country__list {
@@ -49,6 +49,7 @@
 .country__flag {
   width: 100%;
   height: 15rem;
+  object-fit: cover;
   border-bottom: 2px solid;
   border-color: inherit;
 }
@@ -57,16 +58,27 @@
   text-decoration: none;
   color: inherit;
   background-color: #fff;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
 }
 
 .country-flag {
   display: flex;
-  height: 45rem;
-  width: 60rem;
+  height: auto;
+  width: 100%;
+  max-height: 80rem;
   align-items: center;
   margin-left: 2rem;
   border: 3px solid;
   border-color: inherit;
+
   @include respond(tab-land) {
     margin-left: 0;
     height: 40rem;
@@ -79,7 +91,7 @@
 
   @include respond(phone) {
     margin-left: 0;
-    height: auto;
+    height: 25rem;
   }
 }
 
@@ -171,5 +183,4 @@
 
 .bordering-country--not-found {
   font-size: 1.8rem;
-  padding: 0.5rem 1.2rem;
 }

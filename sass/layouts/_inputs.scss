@@ -7,8 +7,6 @@
 
 .search__container {
   position: relative;
-  border: 2px solid;
-  border-color: inherit;
 }
 
 .search-input {
@@ -19,10 +17,26 @@
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg 15% 8%);
   color: inherit;
   background-color: $color--white;
+  border-radius: 5rem;
+  border: 2px solid;
+  border-color: inherit;
 
   @include respond(phone) {
     padding: 1rem 0 1rem 3.5rem;
   }
+}
+
+.container__sort-by-population {
+
+}
+
+.sort__button {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 3px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .region-input {
@@ -34,6 +48,7 @@
   background-color: $color--white;
   border: 2px solid;
   border-color: inherit;
+  border-radius: 5rem;
   @include respond(phone) {
     padding: 1rem;
   }
@@ -41,8 +56,8 @@
 
 .button__search-icon {
   position: absolute;
-  top: 8px;
-  left: 12px;
+  top: 11px;
+  left: 13px;
   font-size: 2rem;
   background-color: inherit;
   border: none;

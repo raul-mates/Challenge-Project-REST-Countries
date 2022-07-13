@@ -40,7 +40,7 @@ export const renderCountryDetails = (countryDetails: CountryModel[]) => {
         </div>
         <div class="container__country-info">
             <div class="container__country-flag">
-                <img src="${countryDetails[0].flags.png}" alt="Country flag" class="country-flag">
+                <img src="https://flagcdn.com/w1280/${countryDetails[0].cca2!.toLowerCase()}.png" alt="Country flag" class="country-flag">
             </div>
             <div class="container__country-details">
                 <h2 class="heading-secondary">${countryDetails[0].name.common}</h2>
