@@ -175,7 +175,7 @@ body {
   .country-flag {
     margin-left: 0;
     height: 40rem;
-    width: auto;
+    width: 100%;
   }
 }
 @media (max-width: 58em) {
@@ -330,21 +330,36 @@ body {
   text-decoration: none;
 }
 
+.container__region {
+  position: relative;
+}
+
 .region-input {
   font-family: inherit;
+  font-size: 1.4rem;
   outline: none;
-  padding: 1rem 2rem;
+  padding: 1rem 3rem 1rem 2rem;
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
   color: inherit;
   background-color: #fff;
   border: 2px solid;
   border-color: inherit;
   border-radius: 5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 @media (max-width: 36em) {
   .region-input {
     padding: 1rem;
   }
+}
+
+.arrow-down {
+  position: absolute;
+  color: inherit;
+  top: 14px;
+  right: 13px;
 }
 
 .button__search-icon {

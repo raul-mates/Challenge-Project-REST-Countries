@@ -82,7 +82,7 @@
   @include respond(tab-land) {
     margin-left: 0;
     height: 40rem;
-    width: auto;
+    width: 100%;
   }
 
   @include respond(tab-port) {
