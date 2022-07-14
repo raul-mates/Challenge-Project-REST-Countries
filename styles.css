@@ -305,7 +305,9 @@ body {
 
 .search-input {
   font-family: inherit;
+  font-size: 1.4rem;
   outline: none;
+  width: 90%;
   border: none;
   padding: 1rem 7rem;
   box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg, 15%, 8%);
@@ -351,7 +353,7 @@ body {
 }
 @media (max-width: 36em) {
   .region-input {
-    padding: 1rem;
+    padding: 1rem 3rem 1rem 2rem;
   }
 }
 
