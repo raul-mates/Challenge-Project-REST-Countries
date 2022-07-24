@@ -21,6 +21,7 @@ const genericFetch = (url, init) => __awaiter(void 0, void 0, void 0, function* 
 });
 const fetchCountries = () => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield genericFetch('https://restcountries.com/v3.1/all');
+    console.log(data);
     (0, render_countries_1.renderCountries)(data);
     (0, region_input_1.filterByRegion)();
     (0, toggle_theme_mode_1.toggleThemeMode)();

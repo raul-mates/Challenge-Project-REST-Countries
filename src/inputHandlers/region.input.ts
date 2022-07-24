@@ -1,6 +1,6 @@
-export const filterByRegion = () => {
+export const filterByRegion = ():void => {
     const countryContainer = [...document.querySelectorAll<HTMLDivElement>(".country__container")]!;
-    const selectRegion = document.querySelector('.region-input')! as HTMLSelectElement;
+    const selectRegion = document.querySelector('.region-input') as HTMLSelectElement;
     selectRegion.addEventListener('change', () => {
         let regionSelected = selectRegion.value;
         countryContainer.forEach(country => {

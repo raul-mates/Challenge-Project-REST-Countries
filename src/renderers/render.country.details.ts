@@ -5,7 +5,7 @@ import { fetchCountryDetails } from "../app";
 
 export const renderCountryDetails = (countryDetails: CountryModel[]) => {
     //DOM
-    const body = document.querySelector('body')! as HTMLBodyElement;
+    const body = document.querySelector('body') as HTMLBodyElement;
     const countryDetailsContainer = document.createElement('div');
     countryDetailsContainer.classList.add('country__details-container');
     countryDetailsContainer.classList.add('general-width');

@@ -10,8 +10,7 @@ const toggleThemeMode = () => {
     const countryDetails = document.querySelectorAll('.country__details');
     const colorDarkBlue = "hsl(209, 23%, 22%)";
     const colorVeryDarkBlue = "hsl(207, 26%, 17%)";
-    const colorVeryDarkBlueText = "hsl(200, 15%, 8%)";
-    const colorVeryLightGrayBackground = "hsl(0, 0%, 98%)";
+    const colorVeryDarkBlueText = "#415B91";
     const colorWhite = "#f3f3f3";
     const darkTheme = () => {
         header.style.backgroundColor = colorDarkBlue;
@@ -24,7 +23,7 @@ const toggleThemeMode = () => {
     };
     const lightTheme = () => {
         header.style.backgroundColor = colorWhite;
-        body.style.backgroundColor = colorVeryLightGrayBackground;
+        body.style.backgroundColor = '#fff';
         body.style.color = colorVeryDarkBlueText;
         searchInput.style.backgroundColor = colorWhite;
         regionInput.style.backgroundColor = colorWhite;
