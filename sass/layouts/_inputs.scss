@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem 2rem 1.5rem 2rem;
+  padding: 2.5rem 3.5rem 2.5rem;
 }
 
 .search__container {
@@ -14,11 +14,9 @@
   font-size: 1.4rem;
   outline: none;
   width: 90%;
-  //padding: 1rem 7rem;
-  //box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg 15% 8%);
   color: inherit;
-  //background-color: $color--white;
-  border: 2px solid #E7E6EF;
+  border: 2px solid #e7e6ef;
+  padding: 0.5rem 1rem;
 
   @include respond(phone) {
     padding: 1rem 0 1rem 3.5rem;
@@ -42,11 +40,9 @@
   font-family: inherit;
   font-size: 1.4rem;
   outline: none;
-  padding: 1rem 3rem 1rem 2rem;
-  //box-shadow: 0 0.5rem 1.5rem -0.5rem hsl(200deg 15% 8%);
+  padding: 0.5rem 3rem 0.5rem 1rem;
   color: inherit;
-  //background-color: $color--white;
-  border: 2px solid #E7E6EF;
+  border: 2px solid #e7e6ef;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -55,23 +51,53 @@
   }
 }
 
+.inputs__wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.container__view {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.view-text {
+  cursor: default;
+}
+
+.grid-icon {
+  cursor: pointer;
+}
+
+.list-icon {
+  cursor: pointer;
+  font-size: 2.25rem;
+}
+
 .arrow-down {
   position: absolute;
   color: inherit;
-  top: 14px;
-  right: 13px;
+  top: 9px;
+  right: 11px;
   pointer-events: none;
 }
 
 .button__search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  top: 11px;
-  left: 13px;
+  top: 0px;
+  right: -20px;
   font-size: 2rem;
-  background-color: inherit;
+  padding: 0.5rem 1rem;
+  background-color: #81b0ff;
   border: none;
   cursor: pointer;
-  color: inherit;
+  color: #fff;
+  border: 1.5px solid #81b0ff;
 }
 
 #theme-mode__checkbox {
@@ -88,6 +114,7 @@
   width: 6rem;
   background-color: #111;
   border-radius: 5rem;
+  cursor: pointer;
 }
 
 .ball {
@@ -98,7 +125,7 @@
   border-radius: 50%;
   width: 2.6rem;
   height: 2.6rem;
-  transition: transform .2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 #theme-mode__checkbox:checked + .checkbox__label .ball {
@@ -125,7 +152,7 @@
   border: 2px solid;
   border-color: inherit;
   background-color: inherit;
-  transition: transform .4s;
+  transition: transform 0.4s;
   color: inherit;
 
   &:hover {

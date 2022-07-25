@@ -1,4 +1,4 @@
-.countries__section {
+.countries-grid-style {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
@@ -25,7 +25,6 @@
 .country__container {
   min-height: 32.5rem;
   width: 26.4rem;
-  box-shadow: $setting--box-shadow;
   padding: 1rem;
 }
 
@@ -54,14 +53,17 @@
   text-decoration: none;
   color: inherit;
   background-color: #fff;
-  transition: transform 0.2s;
+  box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s, box-shadow 0.4s;
 
   &:hover {
     transform: scale(1.05);
+    box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.3);
   }
 
   &:active {
     transform: scale(1);
+    box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.3);
   }
 }
 

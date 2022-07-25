@@ -1,11 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.renderCountries = void 0;
-const renderCountries = (countries) => {
-    const countrySection = document.querySelector(".countries-grid-style");
-    countries.forEach((country) => {
-        countrySection.insertAdjacentHTML('beforeend', `
-        <a href="#" class="country__details">
+exports.renderCountriesInListStyle = void 0;
+const renderCountriesInListStyle = (countries) => {
+    const listStyleButton = document.querySelector(".list-icon");
+    const countrySection = document.querySelector(".countries__section");
+    const countriesGridStyleContainer = document.querySelector('.countries-grid-style');
+    listStyleButton.addEventListener("click", () => {
+        countriesGridStyleContainer.classList.add('hidden');
+        countries.forEach((country) => {
+            countrySection.insertAdjacentHTML('beforeend', `
+        <a href="#" class="country__details hidden">
             <div class="country__container" data-region="${country.region}" data-name="${country.name.common}" data-official="${country.name.official}">
                 <img src="https://flagcdn.com/w640/${country.cca2.toLowerCase()}.png" alt="${country.flag}" class="country__flag" />
                 <h3 class="country__name">${country.name.common}</h3>
@@ -17,7 +21,8 @@ const renderCountries = (countries) => {
             </div>
         </a>
     `);
+        });
     });
 };
-exports.renderCountries = renderCountries;
-//# sourceMappingURL=render.countries.js.map
+exports.renderCountriesInListStyle = renderCountriesInListStyle;
+//# sourceMappingURL=list-style.renderer.js.map

@@ -1,63 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
-          rel="stylesheet">
-    <link rel="icon" type="image/x-icon"
-          href="/imgs/icons8-earth-globe-100.png">
-    <link rel="stylesheet" href="styles.css">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imgs/icons8-earth-globe-100.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+      defer
+    ></script>
     <script type="module" src="dist/script.js" defer></script>
     <title>RMA &boxv; REST-ful Countries</title>
-</head>
-<body>
-<header class="header">
-    <div class="header__content general-width center">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content general-width center">
         <h1 class="heading-primary">Where in the world?</h1>
         <div class="container__theme-mode">
-            <input type="checkbox" id="theme-mode__checkbox">
-            <label for="theme-mode__checkbox" class="checkbox__label">
-                <ion-icon name="moon" class="moon"></ion-icon>
-                <ion-icon name="sunny" class="sun"></ion-icon>
-                <div class="ball"></div>
-            </label>
+          <input type="checkbox" id="theme-mode__checkbox" />
+          <label for="theme-mode__checkbox" class="checkbox__label">
+            <ion-icon name="moon" class="moon"></ion-icon>
+            <ion-icon name="sunny" class="sun"></ion-icon>
+            <div class="ball"></div>
+          </label>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
 
-<div class="inputs__container general-width center">
-    <div class="search__container">
+    <div class="inputs__container general-width center">
+      <div class="search__container">
         <form action="#">
-            <button type="submit" class="button__search-icon">
-                <ion-icon name="search-outline"></ion-icon>
-            </button>
-            <input class="search-input" id="search" type="text" placeholder="Search for a country...">
+          <button type="submit" class="button__search-icon">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+          <input
+            class="search-input"
+            id="search"
+            type="text"
+            placeholder="Search for a country..."
+          />
         </form>
-    </div>
+      </div>
 
-    <div class="container__region">
-        <label for="region">Filter by
+      <div class="inputs__wrapper">
+        <div class="container__region">
+          <label for="region"
+            >Filter by
             <select class="region-input" id="region" name="region">
-                <option value="">Best Match</option>
-                <option value="Europe">Europe</option>
-                <option value="Asia">Asia</option>
-                <option value="Africa">Africa</option>
-                <option value="Americas">Americas</option>
-                <option value="Oceania">Oceania</option>
+              <option value="">Best Match</option>
+              <option value="Europe">Europe</option>
+              <option value="Asia">Asia</option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">Americas</option>
+              <option value="Oceania">Oceania</option>
             </select>
             <ion-icon name="chevron-down" class="arrow-down"></ion-icon>
-        </label>
+          </label>
+        </div>
+
+        <div class="container__view">
+          <p class="view-text">View:</p>
+          <ion-icon name="grid" class="grid-icon"></ion-icon>
+          <ion-icon name="list" class="list-icon"></ion-icon>
+        </div>
+      </div>
     </div>
-</div>
 
-<section class="countries__section general-width center">
-
-</section>
-</body>
+    <section class="countries__section general-width center">
+      <div class="countries-grid-style"></div>
+    </section>
+  </body>
 </html>
