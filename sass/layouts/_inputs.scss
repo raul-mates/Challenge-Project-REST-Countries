@@ -19,7 +19,7 @@
   padding: 0.5rem 1rem;
 
   @include respond(phone) {
-    padding: 1rem 0 1rem 3.5rem;
+    padding: 0.5rem 0 0.5rem 3.5rem;
   }
 }
 
@@ -47,7 +47,7 @@
   -moz-appearance: none;
   appearance: none;
   @include respond(phone) {
-    padding: 1rem 3rem 1rem 2rem;
+    padding: 0.5rem 3rem 0.5rem 2rem;
   }
 }
 
@@ -89,15 +89,19 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 0px;
-  right: -20px;
+  top: 0;
+  right: -19px;
   font-size: 2rem;
-  padding: 0.5rem 1rem;
+  padding: 0.65rem 1rem;
   background-color: #81b0ff;
   border: none;
   cursor: pointer;
   color: #fff;
-  border: 1.5px solid #81b0ff;
+
+  @include respond(phone) {
+    right: -17px;
+    padding: 5.7px 10px;
+  }
 }
 
 #theme-mode__checkbox {

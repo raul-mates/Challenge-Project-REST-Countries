@@ -6,6 +6,8 @@ export const toggleThemeMode = (): void => {
     const searchInput = document.querySelector('.search-input')! as HTMLInputElement;
     const regionInput = document.querySelector('.region-input')! as HTMLInputElement;
     const countryDetails = document.querySelectorAll<HTMLAnchorElement>('.country__details');
+    const countryContainer = document.querySelectorAll<HTMLDivElement>('.country__container');
+    const searchButton = document.querySelector('.button__search-icon') as HTMLButtonElement;
 
 
     //Color variables as in SASS
@@ -21,16 +23,26 @@ export const toggleThemeMode = (): void => {
         body.style.color = colorWhite;
         searchInput.style.backgroundColor = colorDarkBlue;
         regionInput.style.backgroundColor = colorDarkBlue;
+        searchButton.style.color = 'rgb(32, 44, 55)';
+        searchButton.style.backgroundColor = '#e7e6ef';
+        countryContainer.forEach(country => {
+            country.style.backgroundColor = colorDarkBlue;
+        })
 
         if (countryDetails) countryDetails.forEach(country => country.style.backgroundColor = colorDarkBlue)
     }
 
     const lightTheme = (): void => {
-        header.style.backgroundColor = colorWhite;
+        header.style.backgroundColor = '#F9F9F9';
         body.style.backgroundColor = '#fff';
         body.style.color = colorVeryDarkBlueText;
-        searchInput.style.backgroundColor = colorWhite;
-        regionInput.style.backgroundColor = colorWhite;
+        searchInput.style.backgroundColor = '#fff';
+        regionInput.style.backgroundColor = '#fff';
+        searchButton.style.color = '#fff';
+        searchButton.style.backgroundColor = '#81b0ff';
+        countryContainer.forEach(country => {
+            country.style.backgroundColor = '#F9F9F9';
+        })
 
         if (countryDetails) countryDetails.forEach(country => country.style.backgroundColor = colorWhite)
     }

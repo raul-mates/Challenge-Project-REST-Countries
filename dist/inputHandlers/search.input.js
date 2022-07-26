@@ -4,9 +4,7 @@ exports.searchInputHandler = void 0;
 const debounce_1 = require("./debounce");
 const searchInputHandler = () => {
     const searchInput = document.querySelector(".search-input");
-    const countryContainer = [
-        ...document.querySelectorAll(".country__container"),
-    ];
+    const countryContainer = [...document.querySelectorAll(".country__container"),];
     const selectRegion = document.querySelector(".region-input");
     const searchButton = document.querySelector(".button__search-icon");
     searchInput.addEventListener("input", (0, debounce_1.debounce)((e) => {

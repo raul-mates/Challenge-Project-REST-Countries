@@ -12,6 +12,11 @@ html {
     font-size: 56.25%;
   }
 }
+@media (max-width: 36em) {
+  html {
+    font-size: 50%;
+  }
+}
 
 body {
   color: #415B91;
@@ -77,7 +82,7 @@ body {
 }
 
 .header {
-  background-color: #fff;
+  background-color: #F9F9F9;
   border-color: inherit;
 }
 .header__content {
@@ -87,7 +92,7 @@ body {
   padding: 2rem;
 }
 
-.countries-grid-style {
+.grid-style {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
@@ -96,21 +101,35 @@ body {
   padding: 2rem 0 4rem 0;
 }
 @media (max-width: 79em) {
-  .countries-grid-style {
+  .grid-style {
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 0;
   }
 }
 @media (max-width: 58em) {
-  .countries-grid-style {
+  .grid-style {
     grid-template-columns: 1fr 1fr;
     column-gap: 0;
   }
 }
 @media (max-width: 36em) {
-  .countries-grid-style {
+  .grid-style {
     grid-template-columns: 1fr;
     column-gap: 0;
+  }
+}
+
+.list-style {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding: 2rem 0 4rem 0;
+  max-width: 71.5%;
+}
+@media (max-width: 79em) {
+  .list-style {
+    max-width: 100%;
+    padding: 2rem 1rem 4rem 1rem;
   }
 }
 
@@ -118,6 +137,16 @@ body {
   min-height: 32.5rem;
   width: 26.4rem;
   padding: 1rem;
+  background-color: #F9F9F9;
+  overflow: hidden;
+}
+
+.list-style .country__container {
+  display: flex;
+  max-height: 30rem;
+  min-height: auto;
+  padding: 1rem;
+  width: 100%;
 }
 
 .country__list {
@@ -140,6 +169,47 @@ body {
   object-fit: cover;
 }
 
+.list-style .country__container .container__country-text {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  align-items: center;
+}
+@media (max-width: 36em) {
+  .list-style .country__container .container__country-text {
+    grid-template-columns: 1fr;
+  }
+}
+
+.list-style .country__container .country__flag {
+  height: auto;
+  width: 30%;
+}
+
+.list-style .country__container .container__country-text .country__name {
+  text-align: center;
+  font-size: 3.2rem;
+}
+@media (max-width: 58em) {
+  .list-style .country__container .container__country-text .country__name {
+    font-size: 2.2rem;
+  }
+}
+
+.list-style .country__container .container__country-text .country__list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.list-style .country__container .container__country-text .country__list .country__list--item {
+  text-align: center;
+  font-size: 2.4rem;
+}
+@media (max-width: 58em) {
+  .list-style .country__container .container__country-text .country__list .country__list--item {
+    font-size: 1.6rem;
+  }
+}
+
 .country__details {
   text-decoration: none;
   color: inherit;
@@ -154,6 +224,10 @@ body {
 .country__details:active {
   transform: scale(1);
   box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.list-style .country__details {
+  max-height: 30rem;
 }
 
 .country-flag {
@@ -310,7 +384,7 @@ body {
 }
 @media (max-width: 36em) {
   .search-input {
-    padding: 1rem 0 1rem 3.5rem;
+    padding: 0.5rem 0 0.5rem 3.5rem;
   }
 }
 
@@ -340,7 +414,7 @@ body {
 }
 @media (max-width: 36em) {
   .region-input {
-    padding: 1rem 3rem 1rem 2rem;
+    padding: 0.5rem 3rem 0.5rem 2rem;
   }
 }
 
@@ -382,15 +456,20 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 0px;
-  right: -20px;
+  top: 0;
+  right: -19px;
   font-size: 2rem;
-  padding: 0.5rem 1rem;
+  padding: 0.65rem 1rem;
   background-color: #81b0ff;
   border: none;
   cursor: pointer;
   color: #fff;
-  border: 1.5px solid #81b0ff;
+}
+@media (max-width: 36em) {
+  .button__search-icon {
+    right: -17px;
+    padding: 5.7px 10px;
+  }
 }
 
 #theme-mode__checkbox {
