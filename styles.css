@@ -384,7 +384,7 @@ body {
 }
 @media (max-width: 36em) {
   .search-input {
-    padding: 0.5rem 0 0.5rem 3.5rem;
+    padding: 0.5rem 0 0.5rem 1rem;
   }
 }
 
@@ -421,6 +421,12 @@ body {
 .inputs__wrapper {
   display: flex;
   gap: 2rem;
+}
+@media (max-width: 36em) {
+  .inputs__wrapper {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
 }
 
 .container__view {
